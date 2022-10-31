@@ -1,0 +1,80 @@
+<style>
+    body {
+        background: -webkit-linear-gradient(
+            40deg,
+            #00000e 0%,
+            #00004a 50%,
+            #0B0B45 100%
+            );
+    }
+    body.nr-dashboard-theme md-toolbar,
+    body.nr-dashboard-theme md-content md-card {
+        background-color: transparent !important;
+        color: #FFFFFF !important;
+    }
+
+    body.nr-dashboard-theme md-sidenav {
+        color: white !important;
+        background-color: rgba(1,0,0,0) !important;
+    }
+    
+    a.md-no-style, button.md-no-style {
+        border-radius: 10px !important;
+    }
+    .nr-menu-item-active div button {
+        border-right: 4px solid rgb(41 98 255) !important;
+    }
+ 
+    body.nr-dashboard-theme md-sidenav div.md-list-item-inner {
+        color: white !important;
+        background-color: rgba(40,85,165,1) !important;
+        border-radius: 10px !important;
+    }
+
+    ui-card-panel {
+        background-color: rgba(255,255,255,0.1) !important;
+        border-radius: 10px !important;
+    }
+    .nr-dashboard-theme ui-card-panel {
+        border: none !important;
+    }
+
+    .nr-dashboard-theme ui-card-panel p.nr-dashboard-cardtitle {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+
+    .nr-dashboard-theme .nr-dashboard-button .md-button {
+        background-color: rgba(255,255,255,.1) !important;
+    }
+    .md-button {
+        border-radius: 10px !important;
+    }
+
+
+    .nr-dashboard-theme md-select-menu{
+        background-color: rgba(40,85,165,1) !important;
+    }
+    .nr-dashboard-theme md-select-menu, .nr-dashboard-theme md-select-menu md-option {
+        background-color: transparent !important;
+    }
+    .nr-dashboard-theme .md-select-menu-container {
+        border-radius: 10px !important;
+        border: none !important;
+    }
+    .nr-dashboard-theme md-select-menu md-option[selected] {
+        color: green !important;
+        background-color: #4bc982 !important;
+    }
+
+
+    md-card>img, md-card>md-card-header img, md-card md-card-title-media img {
+        border-radius: 10px !important;
+    }
+
+    .nr-dashboard-theme .color-picker-input-wrapper > input {
+        color: white !important;
+        background-color: transparent !important;
+    }
+
+</style>
