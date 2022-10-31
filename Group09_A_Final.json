@@ -1,0 +1,1820 @@
+[
+    {
+        "id": "ebd54d16873d8dfd",
+        "type": "tab",
+        "label": "Group09_A",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6d6338c44d8bfe92",
+        "type": "mqtt in",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "topic": "/task_02l/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0af6e28ec782796b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "979b85d1460975bd"
+            ]
+        ]
+    },
+    {
+        "id": "979b85d1460975bd",
+        "type": "switch",
+        "z": "ebd54d16873d8dfd",
+        "name": "Divider-Switch",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "/task_02l/co01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/co02",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/mok01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/mok02",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/prs",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/ocd01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/ocd02",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/pcd01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/pcd02",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/lvl01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/lvl02",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02l/gfc",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 12,
+        "x": 320,
+        "y": 660,
+        "wires": [
+            [
+                "e014f1642920a01b",
+                "d61ac490be493b8d"
+            ],
+            [
+                "c830feaf9994661f",
+                "095a7949f0f4cef5"
+            ],
+            [
+                "08faf256edf7e981"
+            ],
+            [
+                "05ceb3396ddb22cd"
+            ],
+            [
+                "76c27d44ecac7d08",
+                "1ca02541ac8315c3"
+            ],
+            [
+                "cf190c49f9fe01c3"
+            ],
+            [
+                "5e857a09008d8db4"
+            ],
+            [
+                "909cd6a429f6bf15",
+                "5b7a17b294334c4d"
+            ],
+            [
+                "ee44bc2b1528e890",
+                "6f5b104e1d32a6ac"
+            ],
+            [
+                "4d6b2cf444219ede"
+            ],
+            [
+                "812f5d2da66e1453"
+            ],
+            [
+                "3cba8f5f7ccc3945",
+                "2814f481911f6cfd"
+            ]
+        ]
+    },
+    {
+        "id": "5b7a17b294334c4d",
+        "type": "ui_gauge",
+        "z": "ebd54d16873d8dfd",
+        "name": "Production Counting Data 01",
+        "group": "f95d4478f33bfdf1",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "<font size = 4.8>Production Counting Data 01 - Gauge",
+        "label": "units",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "3000",
+        "colors": [
+            "#e8ec04",
+            "#e8ec04",
+            "#e212d1"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 680,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "d3282e7471d7425e",
+        "type": "ui_template",
+        "z": "ebd54d16873d8dfd",
+        "group": "d783cb980c3979fc",
+        "name": "Node-Red Dashboard Custom CSS",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n\n    /*Main background*/\n    body {\n        background: -webkit-linear-gradient(\n            40deg,\n            #00000e 0%,\n            #00004a 50%,\n            #0B0B45 100%\n            );\n    }\n\n    /*Top bar*/\n    body.nr-dashboard-theme md-toolbar,\n    body.nr-dashboard-theme md-content md-card {\n        background-color: transparent !important;\n        color: #FFFFFF !important;\n    }\n\n\n    /*Left menu*/\n    /*Sidebar*/\n    body.nr-dashboard-theme md-sidenav {\n        color: white !important;\n        background-color: rgba(1,0,0,0) !important;\n    }\n    \n    /*Hover selection*/\n    a.md-no-style, button.md-no-style {\n        border-radius: 10px !important;\n    }\n    /*Selected*/\n    .nr-menu-item-active div button {\n        border-right: 4px solid rgb(41 98 255) !important;\n    }\n    /*List*/\n    body.nr-dashboard-theme md-sidenav div.md-list-item-inner {\n        color: white !important;\n        background-color: rgba(40,85,165,1) !important;\n        border-radius: 10px !important;\n    }\n\n\n    /*Groups*/\n    ui-card-panel {\n        background-color: rgba(255,255,255,0.1) !important;\n        border-radius: 10px !important;\n    }\n    .nr-dashboard-theme ui-card-panel {\n        border: none !important;\n    }\n    /*Name groups*/\n    .nr-dashboard-theme ui-card-panel p.nr-dashboard-cardtitle {\n        color: rgba(255, 255, 255, 0.5) !important;\n    }\n\n\n    /*Bouttons*/\n    .nr-dashboard-theme .nr-dashboard-button .md-button {\n        background-color: rgba(255,255,255,.1) !important;\n    }\n    .md-button {\n        border-radius: 10px !important;\n    }\n\n\n    /*Dropdown menu*/\n    .nr-dashboard-theme md-select-menu{\n        background-color: rgba(40,85,165,1) !important;\n    }\n    .nr-dashboard-theme md-select-menu, .nr-dashboard-theme md-select-menu md-option {\n        background-color: transparent !important;\n    }\n    .nr-dashboard-theme .md-select-menu-container {\n        border-radius: 10px !important;\n        border: none !important;\n    }\n    .nr-dashboard-theme md-select-menu md-option[selected] {\n        color: green !important;\n        background-color: #4bc982 !important;\n    }\n\n    /*Template*/\n    md-card>img, md-card>md-card-header img, md-card md-card-title-media img {\n        border-radius: 10px !important;\n    }\n\n    /* Color picker text BG */\n    .nr-dashboard-theme .color-picker-input-wrapper > input {\n        color: white !important;\n        background-color: transparent !important;\n    }\n\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "global",
+        "className": "",
+        "x": 1160,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28aadefb556ac43d",
+        "type": "inject",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 40,
+        "wires": [
+            [
+                "0ca3b43a250e999b"
+            ]
+        ]
+    },
+    {
+        "id": "0ca3b43a250e999b",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "var timestamp = msg.payload;\nlet time = new Date(timestamp).toLocaleTimeString();\nreturn {\n    payload: time\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 40,
+        "wires": [
+            [
+                "3b65cb0cf6da399a"
+            ]
+        ]
+    },
+    {
+        "id": "3b65cb0cf6da399a",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "80b85e67a05f72b1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Digital Time",
+        "label": "<font size = 4>Local Time      ",
+        "format": "<font size = 6>{{ msg.payload + \"\\n\"}}",
+        "layout": "row-right",
+        "className": "digital_time",
+        "x": 730,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "190793839c6c5c6b",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "80b85e67a05f72b1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "<font size = 7>Task 02I - Manufacturing Environment - Production",
+        "layout": "row-center",
+        "className": "",
+        "x": 890,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "909cd6a429f6bf15",
+        "type": "ui_chart",
+        "z": "ebd54d16873d8dfd",
+        "name": "Graph",
+        "group": "f95d4478f33bfdf1",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#e8ec04",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2fa22f",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee44bc2b1528e890",
+        "type": "ui_gauge",
+        "z": "ebd54d16873d8dfd",
+        "name": "Production Counting Data 02",
+        "group": "38c85693da110f58",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "<font size = 4.8>Production Counting Data 02 - Gauge",
+        "label": "units",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "3000",
+        "colors": [
+            "#e8ec04",
+            "#e6e600",
+            "#e8ec04"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 680,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "6f5b104e1d32a6ac",
+        "type": "ui_chart",
+        "z": "ebd54d16873d8dfd",
+        "name": "Graph",
+        "group": "38c85693da110f58",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "20",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#e8ec04",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2fa22f",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d6b2cf444219ede",
+        "type": "ui_level",
+        "z": "ebd54d16873d8dfd",
+        "group": "290ec81c40592c2b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Water Tank Level - lvl01",
+        "label": "Water Level - lvl01",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "500",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "cm",
+        "layout": "sv",
+        "channelA": "",
+        "channelB": "",
+        "decimals": 0,
+        "animations": "rocket",
+        "shape": "1",
+        "colorschema": "rainbow",
+        "textoptions": "custom",
+        "colorText": "#eeeeee",
+        "fontLabel": "1.5",
+        "fontValue": "4",
+        "fontSmall": "1",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": false,
+        "tickmode": "auto",
+        "peakmode": false,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 670,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "812f5d2da66e1453",
+        "type": "ui_level",
+        "z": "ebd54d16873d8dfd",
+        "group": "290ec81c40592c2b",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "Oil Tank Level - lvl02",
+        "label": "Oil Level - lvl02",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "500",
+        "segWarn": "",
+        "segHigh": "",
+        "unit": "cm",
+        "layout": "sv",
+        "channelA": "",
+        "channelB": "",
+        "decimals": 0,
+        "animations": "reactive",
+        "shape": "1",
+        "colorschema": "rainbow",
+        "textoptions": "custom",
+        "colorText": "#eeeeee",
+        "fontLabel": "1.5",
+        "fontValue": "4",
+        "fontSmall": "1",
+        "colorFromTheme": true,
+        "textAnimations": true,
+        "hideValue": false,
+        "tickmode": "auto",
+        "peakmode": false,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 660,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "058a73eac5467669",
+        "type": "ui_led",
+        "z": "ebd54d16873d8dfd",
+        "order": 1,
+        "group": "085f6307fd0739cc",
+        "width": 0,
+        "height": 0,
+        "label": "Smoke Sensor - mok1",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": true,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Mok01",
+        "x": 750,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4dd4d1dc755285ee",
+        "type": "ui_led",
+        "z": "ebd54d16873d8dfd",
+        "order": 2,
+        "group": "085f6307fd0739cc",
+        "width": 0,
+        "height": 0,
+        "label": "Smoke Sensor - mok2",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": true,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Mok02",
+        "x": 750,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3cba8f5f7ccc3945",
+        "type": "ui_gauge",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "group": "db12747ee49faef7",
+        "order": 6,
+        "width": "8",
+        "height": "5",
+        "gtype": "wave",
+        "title": "",
+        "label": "L",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "600",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 610,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "9c84fb5b4ef1580e",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "db12747ee49faef7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<font size = 5> Fuel Capacity - gfc",
+        "format": "",
+        "layout": "row-center",
+        "className": "",
+        "x": 840,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "e014f1642920a01b",
+        "type": "ui_artlessgauge",
+        "z": "ebd54d16873d8dfd",
+        "group": "dea84fe361023ef2",
+        "order": 6,
+        "width": 6,
+        "height": 6,
+        "name": "CO01",
+        "icon": "",
+        "label": "CO01",
+        "unit": "ppm",
+        "layout": "radial",
+        "decimals": "0",
+        "differential": false,
+        "minmax": true,
+        "colorTrack": "#555555",
+        "style": "5,5",
+        "colorFromTheme": true,
+        "property": "payload",
+        "secondary": "secondary",
+        "inline": false,
+        "animate": true,
+        "sectors": [
+            {
+                "val": 200,
+                "col": "#057641",
+                "t": "min",
+                "dot": 7
+            },
+            {
+                "val": 600,
+                "col": "#47ea1a",
+                "t": "sec",
+                "dot": 7
+            },
+            {
+                "val": 1100,
+                "col": "#dda303",
+                "t": "sec",
+                "dot": 7
+            },
+            {
+                "val": 1600,
+                "col": "#f00000",
+                "t": "sec",
+                "dot": 7
+            },
+            {
+                "val": 2000,
+                "col": "#f00000",
+                "t": "max",
+                "dot": 7
+            }
+        ],
+        "lineWidth": "15",
+        "bgcolorFromTheme": true,
+        "diffCenter": "",
+        "x": 610,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "01aa3cd559e27162",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "dea84fe361023ef2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<font size = 5>CO2 Sensor - 01",
+        "format": "",
+        "layout": "row-center",
+        "className": "",
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d61ac490be493b8d",
+        "type": "ui_chart",
+        "z": "ebd54d16873d8dfd",
+        "name": "Graph",
+        "group": "dea84fe361023ef2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "200",
+        "ymax": "2000",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#30b31e",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2fa22f",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c830feaf9994661f",
+        "type": "ui_artlessgauge",
+        "z": "ebd54d16873d8dfd",
+        "group": "9fae521c9a87f57f",
+        "order": 5,
+        "width": 6,
+        "height": 6,
+        "name": "CO02",
+        "icon": "",
+        "label": "CO02",
+        "unit": "ppm",
+        "layout": "radial",
+        "decimals": "0",
+        "differential": false,
+        "minmax": true,
+        "colorTrack": "#555555",
+        "style": "5,5",
+        "colorFromTheme": true,
+        "property": "payload",
+        "secondary": "secondary",
+        "inline": false,
+        "animate": true,
+        "sectors": [
+            {
+                "val": 200,
+                "col": "#057641",
+                "t": "min",
+                "dot": 7
+            },
+            {
+                "val": 600,
+                "col": "#47ea1a",
+                "t": "sec",
+                "dot": 7
+            },
+            {
+                "val": 1100,
+                "col": "#dda303",
+                "t": "sec",
+                "dot": 7
+            },
+            {
+                "val": 1600,
+                "col": "#f00000",
+                "t": "sec",
+                "dot": 7
+            },
+            {
+                "val": 2000,
+                "col": "#f00000",
+                "t": "max",
+                "dot": 7
+            }
+        ],
+        "lineWidth": "15",
+        "bgcolorFromTheme": true,
+        "diffCenter": "",
+        "x": 610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ce1d6d292c5ad1af",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "9fae521c9a87f57f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<font size = 5>CO2 Sensor - 02",
+        "format": "",
+        "layout": "row-center",
+        "className": "",
+        "x": 830,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "095a7949f0f4cef5",
+        "type": "ui_chart",
+        "z": "ebd54d16873d8dfd",
+        "name": "Graph",
+        "group": "9fae521c9a87f57f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "200",
+        "ymax": "2000",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#30b31e",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2fa22f",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c8520eb01b6b001",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "290ec81c40592c2b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<font size = 5>Level Indicators",
+        "format": "",
+        "layout": "row-center",
+        "className": "",
+        "x": 930,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "76c27d44ecac7d08",
+        "type": "ui_gauge",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "group": "6972b610f3e112ec",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "<font size = 4.8>Atmospheric Pressure Sensor - prs",
+        "label": "mmHg",
+        "format": "{{value}}",
+        "min": "500",
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 730,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "1ca02541ac8315c3",
+        "type": "ui_chart",
+        "z": "ebd54d16873d8dfd",
+        "name": "Graph",
+        "group": "6972b610f3e112ec",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#30b31e",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2fa22f",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 590,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2814f481911f6cfd",
+        "type": "ui_chart",
+        "z": "ebd54d16873d8dfd",
+        "name": "Graph",
+        "group": "db12747ee49faef7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0L",
+        "ymax": "600L",
+        "removeOlder": "10",
+        "removeOlderPoints": "20",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#30b31e",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2fa22f",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d63b2ff5c2493679",
+        "type": "inject",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "93daf212abce4adb"
+            ]
+        ]
+    },
+    {
+        "id": "93daf212abce4adb",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "var timestamp = msg.payload;\nlet time = new Date(timestamp).toLocaleTimeString();\nreturn {\n    payload: time\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "61884b136277a0cd"
+            ]
+        ]
+    },
+    {
+        "id": "61884b136277a0cd",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "ed19eb66684cd456",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Digital Time",
+        "label": "<font size = 4>Local Time      ",
+        "format": "<font size = 6>{{ msg.payload + \"\\n\"}}",
+        "layout": "row-right",
+        "className": "digital_time",
+        "x": 730,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b42bb64227c7aee2",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "ed19eb66684cd456",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "<font size = 7>Task 02I - Manufacturing Environment - Sensors",
+        "layout": "row-center",
+        "className": "",
+        "x": 890,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7103b912b6ae4ca1",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "6972b610f3e112ec",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<font size = 5>Atmospheric Pressure Sensor",
+        "format": "",
+        "layout": "row-center",
+        "className": "",
+        "x": 1130,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "e67b83be9cd71f82",
+        "type": "ui_led",
+        "z": "ebd54d16873d8dfd",
+        "order": 1,
+        "group": "f427f17a9fa2b916",
+        "width": 0,
+        "height": 0,
+        "label": "Occupancy Detector - ocd01",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": true,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "ocd01",
+        "x": 750,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "bbb8eca3dce04007",
+        "type": "ui_led",
+        "z": "ebd54d16873d8dfd",
+        "order": 2,
+        "group": "f427f17a9fa2b916",
+        "width": 0,
+        "height": 0,
+        "label": "Occupancy Detector - ocd02",
+        "labelPlacement": "right",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": true,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "ocd02",
+        "x": 750,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "95fcea82d4168dda",
+        "type": "ui_button",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "group": "c3845077926946af",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset Mok01",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 910,
+        "y": 420,
+        "wires": [
+            [
+                "058a73eac5467669"
+            ]
+        ]
+    },
+    {
+        "id": "f668bf6c4ac533da",
+        "type": "ui_button",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "group": "c3845077926946af",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset Mok02",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 910,
+        "y": 560,
+        "wires": [
+            [
+                "4dd4d1dc755285ee"
+            ]
+        ]
+    },
+    {
+        "id": "73b3fcd6372564f2",
+        "type": "ui_button",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "group": "c3845077926946af",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset ocd01",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 910,
+        "y": 800,
+        "wires": [
+            [
+                "e67b83be9cd71f82"
+            ]
+        ]
+    },
+    {
+        "id": "f609f9d935e929de",
+        "type": "ui_button",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "group": "c3845077926946af",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset ocd02",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 910,
+        "y": 940,
+        "wires": [
+            [
+                "bbb8eca3dce04007"
+            ]
+        ]
+    },
+    {
+        "id": "071c40fc78ab34c4",
+        "type": "ui_toast",
+        "z": "ebd54d16873d8dfd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Occupancy Detector - OCD01 >>>> WARNING ⚠ ",
+        "name": "OCD01 >>>> WARNING",
+        "x": 810,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf190c49f9fe01c3",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "if (msg.payload == 1){\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 800,
+        "wires": [
+            [
+                "e67b83be9cd71f82",
+                "071c40fc78ab34c4",
+                "4c7ab281b329f1bd"
+            ]
+        ]
+    },
+    {
+        "id": "b1836089250c577e",
+        "type": "ui_toast",
+        "z": "ebd54d16873d8dfd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Occupancy Detector - OCD02 >>>> WARNING ⚠ ",
+        "name": "OCD02 >>>> WARNING",
+        "x": 810,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e857a09008d8db4",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "if (msg.payload == 1){\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 940,
+        "wires": [
+            [
+                "bbb8eca3dce04007",
+                "b1836089250c577e",
+                "90d1b18406c29f7c"
+            ]
+        ]
+    },
+    {
+        "id": "05ceb3396ddb22cd",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "if (msg.payload == 1){\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "4dd4d1dc755285ee",
+                "4bfebbb6c9c4c8af",
+                "a5ea376d6914fcda"
+            ]
+        ]
+    },
+    {
+        "id": "4bfebbb6c9c4c8af",
+        "type": "ui_toast",
+        "z": "ebd54d16873d8dfd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Smoke Sensor - MOK02 >>>> WARNING ⚠ ",
+        "name": "MOK02 >>>> WARNING",
+        "x": 810,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "08faf256edf7e981",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "if (msg.payload == 1){\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 420,
+        "wires": [
+            [
+                "058a73eac5467669",
+                "8b2ba3bf9fe1172f",
+                "6e23370dc911b48c"
+            ]
+        ]
+    },
+    {
+        "id": "8b2ba3bf9fe1172f",
+        "type": "ui_toast",
+        "z": "ebd54d16873d8dfd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Smoke Sensor - MOK01 >>>> WARNING ⚠ ",
+        "name": "MOK01 >>>> WARNING",
+        "x": 810,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d4a3f0dc6085a741",
+        "type": "ui_audio",
+        "z": "ebd54d16873d8dfd",
+        "name": "MOK01 ",
+        "group": "ed19eb66684cd456",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 1280,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6e23370dc911b48c",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "msg.payload = \"Smoke Sensor - MOK01 WARNING \";\nmsg.topic = \"Emergency Notification - Manufacturing Environment\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 420,
+        "wires": [
+            [
+                "d4a3f0dc6085a741",
+                "aa3a67df9ebbc7a9"
+            ]
+        ]
+    },
+    {
+        "id": "aa3a67df9ebbc7a9",
+        "type": "ui_audio",
+        "z": "ebd54d16873d8dfd",
+        "name": "MOK01 ",
+        "group": "80b85e67a05f72b1",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 1280,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "983fb1f8439ec544",
+        "type": "ui_audio",
+        "z": "ebd54d16873d8dfd",
+        "name": "MOK02",
+        "group": "ed19eb66684cd456",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 1280,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "a5ea376d6914fcda",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "msg.payload = \"Smoke Sensor - MOK02 WARNING \";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 560,
+        "wires": [
+            [
+                "983fb1f8439ec544",
+                "ab39c841971c41d2"
+            ]
+        ]
+    },
+    {
+        "id": "ab39c841971c41d2",
+        "type": "ui_audio",
+        "z": "ebd54d16873d8dfd",
+        "name": "MOK02",
+        "group": "80b85e67a05f72b1",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 1280,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "74e75e7a0b9cdae6",
+        "type": "ui_audio",
+        "z": "ebd54d16873d8dfd",
+        "name": "OCD01",
+        "group": "ed19eb66684cd456",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 1280,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "4c7ab281b329f1bd",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "msg.payload = \"Occupancy Detector - OCD01 WARNING\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 800,
+        "wires": [
+            [
+                "74e75e7a0b9cdae6",
+                "40413b47d4e2ff8e"
+            ]
+        ]
+    },
+    {
+        "id": "40413b47d4e2ff8e",
+        "type": "ui_audio",
+        "z": "ebd54d16873d8dfd",
+        "name": "OCD01",
+        "group": "80b85e67a05f72b1",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 1280,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "6289a1809e4173af",
+        "type": "ui_audio",
+        "z": "ebd54d16873d8dfd",
+        "name": "OCD02",
+        "group": "ed19eb66684cd456",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 1280,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "90d1b18406c29f7c",
+        "type": "function",
+        "z": "ebd54d16873d8dfd",
+        "name": "",
+        "func": "msg.payload = \"Occupancy Detector - OCD02 WARNING\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 940,
+        "wires": [
+            [
+                "6289a1809e4173af",
+                "2ba2dacc13b09959"
+            ]
+        ]
+    },
+    {
+        "id": "2ba2dacc13b09959",
+        "type": "ui_audio",
+        "z": "ebd54d16873d8dfd",
+        "name": "OCD02",
+        "group": "80b85e67a05f72b1",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 1280,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "a5bd985bad337d9e",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "f95d4478f33bfdf1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<font size = 5>Production Counting Data 01 - pcd01",
+        "format": "",
+        "layout": "row-center",
+        "className": "",
+        "x": 1010,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "5646eb8480a193fa",
+        "type": "ui_text",
+        "z": "ebd54d16873d8dfd",
+        "group": "38c85693da110f58",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<font size = 5>Production Counting Data 02 - pcd02",
+        "format": "",
+        "layout": "row-center",
+        "className": "",
+        "x": 1010,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "ce7f271032c94f11",
+        "type": "ui_spacer",
+        "z": "ebd54d16873d8dfd",
+        "name": "spacer",
+        "group": "290ec81c40592c2b",
+        "order": 3,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "a85858e84cdc86c5",
+        "type": "ui_spacer",
+        "z": "ebd54d16873d8dfd",
+        "name": "spacer",
+        "group": "290ec81c40592c2b",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d9d9a0cb15805271",
+        "type": "ui_spacer",
+        "z": "ebd54d16873d8dfd",
+        "name": "spacer",
+        "group": "c3845077926946af",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0af6e28ec782796b",
+        "type": "mqtt-broker",
+        "name": "group 09",
+        "broker": "5g-vue.projects.uom.lk",
+        "port": "1883",
+        "clientid": "group 09",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "Broker Conected",
+        "birthQos": "0",
+        "birthPayload": "Broker Conected",
+        "birthMsg": {},
+        "closeTopic": "Disconnected",
+        "closeQos": "0",
+        "closePayload": "Disconnected",
+        "closeMsg": {},
+        "willTopic": "Connection Failed",
+        "willQos": "0",
+        "willPayload": "Connection Failed",
+        "willMsg": {},
+        "sessionExpiry": "",
+        "credentials": {}
+    },
+    {
+        "id": "f95d4478f33bfdf1",
+        "type": "ui_group",
+        "name": "Production 01",
+        "tab": "71dac15ef164d768",
+        "order": 10,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d783cb980c3979fc",
+        "type": "ui_group",
+        "name": "Demo",
+        "tab": "0449b3b1fea99d52",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "80b85e67a05f72b1",
+        "type": "ui_group",
+        "name": " ",
+        "tab": "71dac15ef164d768",
+        "order": 1,
+        "disp": true,
+        "width": "30",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "38c85693da110f58",
+        "type": "ui_group",
+        "name": "Production 02",
+        "tab": "71dac15ef164d768",
+        "order": 11,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "290ec81c40592c2b",
+        "type": "ui_group",
+        "name": "Level Sensors - lvl01 & lvl02",
+        "tab": "71dac15ef164d768",
+        "order": 13,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "085f6307fd0739cc",
+        "type": "ui_group",
+        "name": "Smoke Sensors",
+        "tab": "e743586ee95dd29e",
+        "order": 5,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "db12747ee49faef7",
+        "type": "ui_group",
+        "name": "Generator Fuel Capacity",
+        "tab": "71dac15ef164d768",
+        "order": 12,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dea84fe361023ef2",
+        "type": "ui_group",
+        "name": "CO2 Sensor - 01",
+        "tab": "e743586ee95dd29e",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9fae521c9a87f57f",
+        "type": "ui_group",
+        "name": "CO2 Sensor - 02",
+        "tab": "e743586ee95dd29e",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6972b610f3e112ec",
+        "type": "ui_group",
+        "name": "Pressure Sensor",
+        "tab": "e743586ee95dd29e",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ed19eb66684cd456",
+        "type": "ui_group",
+        "name": "",
+        "tab": "e743586ee95dd29e",
+        "order": 1,
+        "disp": true,
+        "width": "27",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f427f17a9fa2b916",
+        "type": "ui_group",
+        "name": "Occupancy Detector",
+        "tab": "e743586ee95dd29e",
+        "order": 6,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c3845077926946af",
+        "type": "ui_group",
+        "name": "Reset LEDs",
+        "tab": "e743586ee95dd29e",
+        "order": 7,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "71dac15ef164d768",
+        "type": "ui_tab",
+        "name": "Production Tab",
+        "icon": "dashboard",
+        "order": 10,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0449b3b1fea99d52",
+        "type": "ui_tab",
+        "name": "Demo",
+        "icon": "dashboard",
+        "order": 17,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e743586ee95dd29e",
+        "type": "ui_tab",
+        "name": "Sensor Tab",
+        "icon": "dashboard",
+        "order": 18,
+        "disabled": false,
+        "hidden": false
+    }
+]
